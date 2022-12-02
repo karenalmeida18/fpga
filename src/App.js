@@ -1,7 +1,14 @@
+import { ThemeProvider } from 'styled-components';
+import Gallows from './pages/gallows';
+import theme from './theme';
+import GlobalStyle from './styles/globalStyles';
+
 function App() {
   return (
-    <div className="App">
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Gallows />
+    </ThemeProvider>
   );
 }
 
