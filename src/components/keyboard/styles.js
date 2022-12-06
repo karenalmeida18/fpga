@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const getButtonColor = (hasError, hasHit, theme) => {
   if (hasError) return theme.colors.red;
   if (hasHit) return theme.colors.green;
-  return theme.colors.white
+  return 'white';
 };
 
 export const Container = styled.div`

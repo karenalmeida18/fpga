@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import * as Styled from "./styles";
 import Keyboard from "../../components/keyboard";
 import SortedWord from "../../components/sortedWord";
+import Header from "../../components/header";
 
 const words = [
     {
@@ -12,6 +14,7 @@ const words = [
 
 // Forca
 export default function Gallows() {
+  const navigate = useNavigate();
   const [keysWithError, setKeysWithError] = useState([]);
   const [keysWithHits, setKeysWithHits] = useState([]);
   const { name: sortedWord, tip } = words[0];
@@ -19,21 +22,44 @@ export default function Gallows() {
   const set = new Set(sortedWord.split(''));
   const filteredWord = [...set].join('');
 
+  useEffect(() => {
+    localStorage.setItem('step', '1');
+    localStorage.setItem('spots', '0');
+  }, []);
+
+  const increaseSpots = () => {
+    alert("PARABÉNS! VOCÊ ACERTOU");
+    localStorage.setItem('spots', '10');
+    setKeysWithError([]);
+    setKeysWithHits([]);
+    navigate('/connect')
+  };
+
+  const restart = () => {
+    alert("Ops... Você atingiu o número de erros, tente novamente.");
+    setKeysWithError([]);
+    setKeysWithHits([]);
+  };
+
   const handleKeyChange = (key) => {
     if (!keysWithError.includes(key) && !keysWithHits.includes(key)) {
       if (sortedWord.includes(key)) {
         setKeysWithHits([...keysWithHits, key]);
-        if (keysWithHits.length === (filteredWord.length - 1)) alert("PARABÉNS! VOCÊ ACERTOU");
+        if (keysWithHits.length === (filteredWord.length - 1)) increaseSpots();
+      } else {
+        setKeysWithError([...keysWithError, key]);
+        if (keysWithError.length === 4) restart();
       }
-      else setKeysWithError([...keysWithError, key]);
     }
   };
 
   return (
     <Styled.Container>
+      <Header />
       <Styled.Content>
         <Styled.TipWrapper>
-         {`Dica: ${tip}`}
+          <b>Dica: </b>
+          {tip}
         </Styled.TipWrapper>
         <SortedWord correctKeys={keysWithHits} currentWord={sortedWord} />
         <Keyboard

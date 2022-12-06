@@ -4,10 +4,24 @@ export const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     padding: 20px;
-    justify-content: center;
+    gap: 20px;
     align-items: center;
     background-color: ${({ theme }) => theme.colors.white}
+`;
+
+export const Form = styled.form`
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+`;
+
+export const Title = styled.h1`
+  color: ${({ theme }) => theme.colors.red};
+  margin: 20px 0;
+  font-family: 'Games', sans-serif;
 `;
 
 export const Content = styled.div`
@@ -23,9 +37,5 @@ export const GallowDraw = styled.div`
 
 export const TipWrapper = styled.p`
     max-width: 700px;
-    background-color: white;
-    border: 1px solid ${({ theme }) => theme.colors.red};
-    border-radius: 4px;
-    padding: 16px;
-    color: ${({ theme }) => theme.colors.redDark};
+
 `;
