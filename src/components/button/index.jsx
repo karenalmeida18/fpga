@@ -1,10 +1,10 @@
 import React from "react";
 import * as Styled from "./styles";
 
-export default function Button({ text, onClick, rest }) {
+export default function Button({ text, onClick, children, rest, variant = 'primary' }) {
   return (
-    <Styled.Button {...rest} onClick={() => (onClick ? onClick() : undefined)}>
-      {text}
+    <Styled.Button $variant={variant} {...rest} onClick={() => (onClick ? onClick() : undefined)}>
+      {text || children}
     </Styled.Button>
   );
 }

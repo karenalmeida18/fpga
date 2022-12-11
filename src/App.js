@@ -7,6 +7,9 @@ import Gallows from './pages/gallows';
 import ConnectDots from './pages/connectDots';
 import Home from './pages/home';
 import Questions from './pages/questions';
+import Final from './pages/final';
+
+import "react-horizontal-vertical/rhv.css";
 
 const router = createBrowserRouter([
   {
@@ -18,8 +21,12 @@ const router = createBrowserRouter([
     element: <ConnectDots />,
   },
   {
-    path: "/hunting",
+    path: "/questions",
     element: <Questions />,
+  },
+  {
+    path: "/final",
+    element: <Final />
   },
   {
     path: "/",
