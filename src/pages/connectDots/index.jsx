@@ -17,6 +17,10 @@ const elements = [
     name: "Placa-mãe",
     id: "placa",
   },
+  {
+    name: 'Placa de vídeo',
+    id: 'video',
+  }
 ];
 
 const descriptions = [
@@ -29,6 +33,10 @@ const descriptions = [
     id: "mouse",
     description:
       "É o componente que possibilita ao usuário direcionar o cursor e clicar em locais específicos para executar uma tarefa.",
+  },
+  {
+    id: 'video',
+    description: 'É o componente responsável por permitir a visualização de imagens no monitor.'
   },
   {
     id: "monitor",
@@ -51,7 +59,7 @@ export default function ConnectDots() {
   const increaseSpots = () => {
     alert("PARABÉNS! VOCÊ ACERTOU");
     localStorage.setItem('spots', '20');
-    navigate('/hunting')
+    navigate('/questions')
   };
 
 
@@ -60,13 +68,13 @@ export default function ConnectDots() {
       setSelectedElement(id);
       if (selectedDescription === id) {
         setCorrectPairs([...correctPairs, id]);
-        if (correctPairs.length === 2 ) increaseSpots();
+        if (correctPairs.length === 3 ) increaseSpots();
       }
     } else {
       setSelectedDescription(id);
       if (selectedElement === id) {
         setCorrectPairs([...correctPairs, id]);
-        if (correctPairs.length === 2 ) increaseSpots();
+        if (correctPairs.length === 3 ) increaseSpots();
       }
     }
   };
