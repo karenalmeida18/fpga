@@ -9,6 +9,7 @@ import Modal from "../../components/modal";
 
 const tips = [
   {
+    id: 'tip1',
     description: "Esse componente é responsável por dar mais agilidade ao sistema...",
     position: {
       x: 10,
@@ -16,6 +17,7 @@ const tips = [
     },
   },
   {
+    id: 'tip2',
     description: "Basicamente esse componente funciona como um espaço de trabalho temporário...",
     position: {
       x: 40,
@@ -23,6 +25,7 @@ const tips = [
     },
   },
   {
+    id: 'tip3',
     description: "Guarda temporariamente toda informação que o computador precisa.",
     position: {
       x: 70,
@@ -36,7 +39,7 @@ const component = "ram"
 
 export default function Questions() {
   const [x, setX] = useState(1);
-  const [y, setY] = useState(5);
+  const [y, setY] = useState(2);
   const navigate = useNavigate();
   const [tipsOpened, setTipsOpened] = useState([]);
   const [openModal, setOpenModal] = useState(false);
@@ -66,9 +69,9 @@ export default function Questions() {
   }
 
   const handlePressSpace = () => {
-    tips.forEach((tip, index) => {
+    tips.forEach((tip) => {
       const { offsetLeft: tipX, offsetTop: tipY } = document.getElementById(
-        index + 1
+        tip.id
       ) || {};
       const {
         offsetLeft: avatarX,
@@ -85,7 +88,7 @@ export default function Questions() {
         }, 500);
       } else {
         setTimeout(() => {
-          setY(5);
+          setY(2);
         }, 500);
       }
     });
@@ -111,7 +114,7 @@ export default function Questions() {
     alert ('Opss... você errou!');
     setTipsOpened([]);
     setX(1);
-    setY(5);
+    setY(2);
     setOpenModal(false);
   };
 
@@ -136,8 +139,8 @@ export default function Questions() {
       <Styled.Container onKeyPress={handleKeyPress}>
         <Header />
         <Styled.Image $x={x} $y={y} src={Alan} id="avatar" />
-        {tips.filter((tip) => !tipsOpened.includes(tip)).map(({ position }, index) => (
-          <Styled.Card id={index + 1} key={index} $x={position.x} $y={position.y}>
+        {tips.filter((tip) => !tipsOpened.includes(tip)).map(({ position, id }) => (
+          <Styled.Card id={id} key={id} $x={position.x} $y={position.y}>
             ?
           </Styled.Card>
         ))}

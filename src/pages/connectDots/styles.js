@@ -4,7 +4,7 @@ export const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
-    padding: 20px;
+    padding: 40px;
     padding-top: 75px;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,8 @@ export const Item = styled.p`
   border-radius: 4px;
   padding: 8px;
   display: flex;
-  width: ${({ $isDescription }) => $isDescription ? 'auto' : '120px'};
+  width: ${({ $isDescription }) => $isDescription ? 'auto' : '200px'};
+  height: ${({ $isDescription }) => $isDescription ? 'auto' : '45px'};
   font-weight: ${({ $isDescription }) => $isDescription ? '500' : '600'};
   justify-content: center;
   align-items: center;

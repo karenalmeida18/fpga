@@ -19,7 +19,7 @@ export const Floor = styled.div`
   width: 100%; 
   position: absolute;
   bottom: 0;
-  height: 5rem;
+  height: 2rem;
 `;
 
 export const Image = styled.img`
@@ -64,22 +64,22 @@ export const animate = (x, y) => keyframes`
     bottom: ${y + 3}rem;
   }
   50% {
-    bottom: ${y}rem;
+    bottom: ${y - 2}rem;
   }
   60% {
-    bottom: ${y + 5}rem;
+    bottom: ${y + 4}rem;
   }
   70% {
     bottom: ${y}rem;
   }
   75% {
-    bottom: ${y + 8}rem;
+    bottom: ${y + 6}rem;
   }
   80% {
     bottom: ${y}rem;
   }
   100% {
-    bottom: ${y + 10}rem;
+    bottom: ${y + 8}rem;
   }
 `;
 
