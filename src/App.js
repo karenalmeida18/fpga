@@ -8,6 +8,7 @@ import ConnectDots from './pages/connectDots';
 import Home from './pages/home';
 import Questions from './pages/questions';
 import Final from './pages/final';
+import HuntingWords from './pages/huntingWords';
 
 import "react-horizontal-vertical/rhv.css";
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/questions",
     element: <Questions />,
+  },
+  {
+    path: "/hunting",
+    element: <HuntingWords />,
   },
   {
     path: "/final",

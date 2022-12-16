@@ -50,7 +50,6 @@ export const Card = styled.div`
   left: ${({ $x }) => $x + 'rem'};
   bottom: ${({ $y }) => $y + 'rem'};
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  animation: ${({ $x, $y }) => animate($x, $y)} 6s linear infinite;
 `
 
 export const animate = (x, y) => keyframes`

@@ -51,7 +51,7 @@ export default function ConnectDots() {
   const increaseSpots = () => {
     alert("PARABÉNS! VOCÊ ACERTOU");
     localStorage.setItem('spots', '20');
-    navigate('/hunting')
+    navigate('/questions')
   };
 
 

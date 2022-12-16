@@ -74,9 +74,12 @@ export default function Questions() {
         offsetLeft: avatarX,
         offsetTop: avatarY,
       } = document.getElementById("avatar");
+      console.log({ tipX, avatarX });
+
+      Math.floor(620/10)
 
 
-      if (tipX === avatarX && tipY === avatarY) {
+      if (Math.floor(tipX/10) === Math.floor(avatarX/10) && tipY === avatarY) {
         setTimeout(() => {
           handleOpenTip(tip);
         }, 500);
@@ -104,7 +107,7 @@ export default function Questions() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (value.includes(component)) return navigate('/final');
+    if (value.includes(component)) return navigate('/hunting');
     alert ('Opss... você errou!');
     setTipsOpened([]);
     setX(1);
