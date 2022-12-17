@@ -77,13 +77,13 @@ export default function ConnectDots() {
       setSelectedElement(id);
       if (selectedDescription === id) {
         setCorrectPairs([...correctPairs, id]);
-        if (correctPairs.length === 3 ) increaseSpots();
+        if (correctPairs.length === 4 ) increaseSpots();
       }
     } else {
       setSelectedDescription(id);
       if (selectedElement === id) {
         setCorrectPairs([...correctPairs, id]);
-        if (correctPairs.length === 3 ) increaseSpots();
+        if (correctPairs.length === 4 ) increaseSpots();
       }
     }
   };

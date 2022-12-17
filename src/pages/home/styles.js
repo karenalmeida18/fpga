@@ -8,7 +8,7 @@ export const Container = styled.div`
     padding: 20px;
     gap: 20px;
     align-items: center;
-    background-color: ${({ theme }) => theme.colors.white}
+    background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Form = styled.form`
