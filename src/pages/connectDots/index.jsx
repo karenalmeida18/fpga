@@ -14,6 +14,10 @@ const elements = [
     id: "mouse",
   },
   {
+    name: 'Placa de som',
+    id: 'som',
+  },
+  {
     name: "Placa-mãe",
     id: "placa",
   },
@@ -37,6 +41,11 @@ const descriptions = [
   {
     id: 'video',
     description: 'É o componente responsável por permitir a visualização de imagens no monitor.'
+  },
+  {
+    id: "som",
+    description:
+      "É o componente que permite a emissão de sons pelo computador.",
   },
   {
     id: "monitor",
