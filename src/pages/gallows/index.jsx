@@ -9,6 +9,10 @@ const words = [
     {
       name: 'PROCESSADOR',
       tip: 'Também conhecido como CPU, ele fica acoplado à placa-mãe e é responsável por fazer o controle das operações que a máquina realiza. Interfere diretamente na rapidez das tarefas executadas.'
+    },
+    {
+      name: 'GABINETE',
+      tip: 'também conhecido como case, caixa, chassis, carcaça ou torre. É o compartimento que contém a maioria dos componentes de um computador (normalmente, excluindo o monitor, teclado e mouse).'
     }
 ]
 
@@ -17,9 +21,10 @@ export default function Gallows() {
   const navigate = useNavigate();
   const [keysWithError, setKeysWithError] = useState([]);
   const [keysWithHits, setKeysWithHits] = useState([]);
-  const { name: sortedWord, tip } = words[0];
+  const [word, setWord] = useState(words[0]);
+  const { name: sortedWord, tip } = word || {};
 
-  const set = new Set(sortedWord.split(''));
+  const set = new Set(sortedWord?.split(''));
   const filteredWord = [...set].join('');
 
   useEffect(() => {
@@ -28,11 +33,17 @@ export default function Gallows() {
   }, []);
 
   const increaseSpots = () => {
-    alert("PARABÉNS! VOCÊ ACERTOU");
-    localStorage.setItem('spots', '10');
     setKeysWithError([]);
     setKeysWithHits([]);
-    navigate('/connect')
+    if (word === words[0]) {
+      alert("PARABÉNS! Você passou na primeira fase. Descubra a segunda palavra");
+      localStorage.setItem('spots', '5');
+      setWord(words[1]);
+    } else {
+      localStorage.setItem('spots', '10');
+      alert("PARABÉNS! Você passou na segunda fase. Vamos para o próximo nível!");
+      navigate('/connect');
+    }
   };
 
   const restart = () => {

@@ -10,6 +10,7 @@ export default function Final() {
   return (
     <Styled.Container>
       <Styled.Title>Parabéns, {name}! Você chegou ao fim.</Styled.Title>
+      <p>Pontuação: 40</p>
       <Button onClick={() => navigate('/')}>Jogar novamente</Button>
     </Styled.Container>
   );
