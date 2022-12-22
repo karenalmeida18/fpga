@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import Header from "../../components/header";
@@ -68,6 +69,7 @@ export default function HuntingWords() {
     alert('Parabéns! você ganhou.');
     navigate('/final');
    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wordsFinded]);
 
   return (
