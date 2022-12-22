@@ -7,6 +7,7 @@ const colors = {
   yellow: '#ffe098',
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     colors,
 }
